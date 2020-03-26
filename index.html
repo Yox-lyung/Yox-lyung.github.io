@@ -154,6 +154,163 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/03/26/CentOS7%E5%AE%89%E8%A3%85cadenceIC617%EF%BC%88%E4%B8%89%EF%BC%89-%E5%AE%89%E8%A3%85%E7%AF%87/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="John Doe">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/03/26/CentOS7%E5%AE%89%E8%A3%85cadenceIC617%EF%BC%88%E4%B8%89%EF%BC%89-%E5%AE%89%E8%A3%85%E7%AF%87/" class="post-title-link" itemprop="url">CentOS7安装cadenceIC617（三） 安装篇</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2020-03-26 20:06:28 / 修改时间：23:43:12" itemprop="dateCreated datePublished" datetime="2020-03-26T20:06:28+08:00">2020-03-26</time>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="安装包准备"><a href="#安装包准备" class="headerlink" title="安装包准备"></a>安装包准备</h1><p>本地环境的文件列出如下：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">[root@eda shared]<span class="comment"># tree -L 2</span></span><br><span class="line">.</span><br><span class="line">├── calibre2019</span><br><span class="line">│   └── aoj_cal_2019.3_15.11_mib.exe</span><br><span class="line">├── IC06.18.000_lnx86.Base</span><br><span class="line">│   └── CDROM1</span><br><span class="line">├── patch</span><br><span class="line">│   ├── 1patch.sh</span><br><span class="line">│   ├── 1shell.py</span><br><span class="line">│   ├── 1shell.sh</span><br><span class="line">│   ├── cdslicgen.py</span><br><span class="line">│   └── mgclicgen.py</span><br><span class="line">└── SPECTRE18.10.077_lnx86.Base</span><br><span class="line">    └── CDROM1</span><br><span class="line"></span><br><span class="line">6 directories, 6 files</span><br></pre></td></tr></table></figure>
+<pre><code>注：上诉安装包全部都已经解压完毕。</code></pre><h1 id="安装InstallScape"><a href="#安装InstallScape" class="headerlink" title="安装InstallScape"></a>安装InstallScape</h1><ol>
+<li><p>在/opt/eda/cadence目录下创建IC618文件夹，作为IC618的安装目录</p>
+</li>
+<li><p>进入/mnt/hgfs/shared/IC06.18.000.lnx86.Base/CDROM1目录下，右键打开终端，在终端中输入<code>./SETUP.SH</code>，按Enter健执行命令</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[root@eda CDROM1]<span class="comment"># ./SETUP.SH</span></span><br></pre></td></tr></table></figure></li>
+<li><p>在弹出的界面中，继续按Enter</p>
+</li>
+</ol>
+<p><img src="/images/pasted-39.png" alt="upload successful"></p>
+<ol start="4">
+<li>按照提示，输入IC618安装目录/opt/eda/cadence/IC618后，按Enter键</li>
+</ol>
+<p><img src="/images/pasted-40.png" alt="upload successful"></p>
+<ol start="5">
+<li>由于没有事先安装InstallScape，首先在/opt/eda/cadence目录下创建iscape文件夹，然后按照提示安装</li>
+</ol>
+<p><img src="/images/pasted-41.png" alt="upload successful"></p>
+<ol start="6">
+<li>如果一切无误，启动脚本的输出信息如上所示，等待几秒，InstallIscape的图形界面就会出现。在菜单栏中的Preferences-&gt;InstallScape设置软件安装的路径，本文设置为opt/eda/cadence：</li>
+</ol>
+<p><img src="/images/pasted-42.png" alt="upload successful"></p>
+<p><img src="/images/pasted-43.png" alt="upload successful"></p>
+<h1 id="安装IC618"><a href="#安装IC618" class="headerlink" title="安装IC618"></a>安装IC618</h1><ol>
+<li>点击“Local directory/Media install”—-“Browse”并选择安装文件所在的文件夹IC06.18.000_lnx86.Base/CDROM1，确认路径的正确然后点“Continue&gt;”</li>
+</ol>
+<p><img src="/images/pasted-44.png" alt="upload successful"></p>
+<ol start="2">
+<li>在弹出来的界面中勾选IC_06.18.000后，点击Next</li>
+</ol>
+<p><img src="/images/pasted-45.png" alt="upload successful"></p>
+<ol start="3">
+<li>在弹出来的界面中，确认IC618的安装路径后，点击Start开始安装</li>
+</ol>
+<p><img src="/images/pasted-46.png" alt="upload successful"></p>
+<ol start="4">
+<li>安装完成后，需要进行配置，大部分的配置可以直接按Enter，有两个需要注意一下，一个是提示要不要安装库文件，可以选择安装；另外一个是提示要不要使用默认的OA路径，建议选择默认的就行。</li>
+</ol>
+<p><img src="/images/pasted-47.png" alt="upload successful"></p>
+<p>这一步选2</p>
+<p><img src="/images/pasted-49.png" alt="upload successful"></p>
+<p>注意这一步选n，不要更改OA的默认安装位置</p>
+<p><img src="/images/pasted-50.png" alt="upload successful"></p>
+<ol start="5">
+<li>配置完成后，完成了IC618的安装，不要关掉下图界面，继续进行SPECTRE181的安装</li>
+</ol>
+<p><img src="/images/pasted-51.png" alt="upload successful"></p>
+<h1 id="安装SPECTRE181"><a href="#安装SPECTRE181" class="headerlink" title="安装SPECTRE181"></a>安装SPECTRE181</h1><ol>
+<li>安装过程与IC617类似。在/opt/eda/cadence目录创建SPECTRE181文件夹，用来作为SPECTRE的安装目录。点击上图中的Done，在弹出来的界面中点击Cancel，返回到下图界面，选择SPECTRE的安装包存放路径，点击Continue</li>
+</ol>
+<p><img src="/images/pasted-52.png" alt="upload successful"></p>
+<ol start="2">
+<li>勾选SPECTRE_18，点击Next</li>
+</ol>
+<p><img src="/images/pasted-53.png" alt="upload successful"></p>
+<ol start="3">
+<li>选择好SPECTRE的安装路径，点击Start开始安装</li>
+</ol>
+<p><img src="/images/pasted-54.png" alt="upload successful"></p>
+<ol start="4">
+<li>在弹出来的配置界面中，选择IC618的OA路径</li>
+</ol>
+<p><img src="/images/pasted-55.png" alt="upload successful"></p>
+<ol start="5">
+<li>安装成功后的界面如下图所示</li>
+</ol>
+<p><img src="/images/pasted-56.png" alt="upload successful"></p>
+<h1 id="安装Calibre2019"><a href="#安装Calibre2019" class="headerlink" title="安装Calibre2019"></a>安装Calibre2019</h1><ol>
+<li><p>将Calibre2019文件夹下的aoi_cal_2015.2_36.27_mib.exe拷贝至/opt/mentor/Calibre2019目录下，在该目录下打开Terminal执行：<code>./aoi_cal_2015.2_36.27_mib.exe</code></p>
+</li>
+<li><p>输入“d”—-“yes”，等待几分钟后完成了calibre2019的安装</p>
+</li>
+</ol>
+<p><img src="/images/pasted-57.png" alt="upload successful"></p>
+<h1 id="PATCH"><a href="#PATCH" class="headerlink" title="PATCH"></a>PATCH</h1><ol>
+<li>将patch文件夹复制到/opt/eda/cadence目录下，进入/opt/eda/cadence/patch目录，打开终端，输入<code>./1patch.sh ../IC618/</code>，按Enter</li>
+</ol>
+<p><img src="/images/pasted-58.png" alt="upload successful"></p>
+<ol start="2">
+<li>继续在终端中输入<code>./1patch.sh ../SPECTRE181/</code>，按Enter，进行SPECTRE的patch</li>
+</ol>
+<p><img src="/images/pasted-59.png" alt="upload successful"></p>
+<ol start="3">
+<li>继续在终端中输入<code>./1patch.sh /opt/eda/mentor/calibre2019/</code>，按Enter，进行calibre的patch</li>
+</ol>
+<p><img src="/images/pasted-60.png" alt="upload successful"></p>
+<h1 id="LICENSE"><a href="#LICENSE" class="headerlink" title="LICENSE"></a>LICENSE</h1><ol>
+<li>继续在终端输入<code>python cdslicgen.py</code>，产生IC618的license，将产生的license.dat复制到/opt/eda/cadence/license目录(新建license文件夹）下</li>
+<li>在终端输入<code>ifconfig</code>，查看mac地址，ens33下面ether后面的<code>00:0c:29:11:10:a9</code>即为mac地址；继续输入<code>python mgclicgen.py 00:0c:29:11:10:a9</code>，产生calibre的license，将产生的license.dat复制到/opt/eda/mentor/license目录下</li>
+</ol>
+<h1 id="运行IC618、calibre2019"><a href="#运行IC618、calibre2019" class="headerlink" title="运行IC618、calibre2019"></a>运行IC618、calibre2019</h1><ol>
+<li><p>切换到个人账户进入系统，将/opt/eda/cadence/patch目录下的.bashrc复制到个人目录/home/username下，.bashrc是隐藏文件，按CTRL+h可以显示隐藏文件</p>
+</li>
+<li><p>在个人目录/home/username打开终端，输入<code>source .bashrc</code>，加载环境变量；再输入<code>virtuoso</code>启动IC618。</p>
+</li>
+<li><p>在个人目录/home/username打开终端，输入<code>source .bashrc</code>，加载环境变量；再输入<code>calibre -gui</code>启动calibre</p>
+</li>
+</ol>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/03/26/CentOS7%E5%AE%89%E8%A3%85cadenceIC618%EF%BC%88%E4%BA%8C%EF%BC%89-%E7%8E%AF%E5%A2%83%E7%AF%87/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -600,7 +757,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">4</span>
+          <span class="site-state-item-count">5</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
